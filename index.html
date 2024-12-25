@@ -100,7 +100,7 @@
                     console.log('加载进度:', (progress.loaded / progress.total * 100) + '%');
                 },
                 function(error) {
-                    console.error('音频加载失败:', error);
+                    console.error('音频加��失败:', error);
                 }
             );
 
@@ -379,7 +379,7 @@
                     positions[index + 1] = baseHeight;
                     positions[index + 2] = radius * Math.sin(angle);
                     
-                    // 集环的颜色更
+                    // 集环颜色更
                     const color = new THREE.Color();
                     const hue = 0.6;
                     const saturation = isDenseRing ? 
@@ -418,13 +418,13 @@
             loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
                 const textGeometry = new THREE.TextGeometry('Merry\nChristmas', {
                     font: font,
-                    size: 0.6,
-                    height: 0.2,
+                    size: 1,
+                    height: 0.1,
                     curveSegments: 12,
-                    bevelEnabled: true,
-                    bevelThickness: 0.05,
-                    bevelSize: 0.02,
-                    bevelSegments: 5
+                    bevelEnabled: false,
+                    bevelThickness: 0,
+                    bevelSize: 0,
+                    bevelSegments: 0
                 });
                 
                 textGeometry.center();
@@ -514,8 +514,8 @@
                     });
                     
                     catSprite = new THREE.Sprite(material);
-                    catSprite.scale.set(1.2, 1.2, 1);
-                    catSprite.position.set(1, 0.8, 7.9);
+                    catSprite.scale.set(2.4, 2.4, 1);
+                    catSprite.position.set(2, 2, 7.9);
                     catSprite.visible = false;
                     scene.add(catSprite);
                 }
@@ -656,14 +656,14 @@
             
             if (catSprite && catSprite.visible) {
                 // 上下浮动
-                catSprite.position.y = 0.6 + Math.sin(Date.now() * 0.001) * 0.1;
+                catSprite.position.y = 0.7 + Math.sin(Date.now() * 0.001) * 0.1;
                 
                 // 改用 rotation.y 实现左右摇摆
                 const swingAngle = Math.sin(Date.now() * 0.002) * 0.3; // 增加了摆动幅度到 0.3
                 catSprite.rotation.y = swingAngle;
                 
                 // 固定位置
-                catSprite.position.x = 1.2;
+                catSprite.position.x = 2;
                 catSprite.position.z = 7.9;
             }
             
@@ -678,12 +678,12 @@
             if (window.innerWidth < 768) {
                 camera.position.z = 20;
                 if (text) {
-                    text.scale.set(0.6, 0.6, 0.6);
+                    text.scale.set(0.7, 0.7, 0.7);
                     text.position.set(0, 0, 8);
                 }
                 if (catSprite) {
-                    catSprite.scale.set(1.8, 1.8, 1);
-                    catSprite.position.set(3, 0.8, 7.9);
+                    catSprite.scale.set(3.6, 3.6, 1);
+                    catSprite.position.set(6, 1.6, 7.9);
                 }
             } else {
                 camera.position.z = 15;
@@ -692,8 +692,8 @@
                     text.position.set(0, 0, 8);
                 }
                 if (catSprite) {
-                    catSprite.scale.set(2.5, 2.5, 1);
-                    catSprite.position.set(3.5, 0.8, 7.9);
+                    catSprite.scale.set(5, 5, 1);
+                    catSprite.position.set(7, 1.6, 7.9);
                 }
             }
         }
