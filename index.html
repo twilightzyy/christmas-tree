@@ -83,7 +83,7 @@
             
             // 加载音频文件 - 请将路径替换为的音频文件位置
             audioLoader.load(
-                '03LastChristmas.mp3', 
+                './03LastChristmas.mp3', 
                 function(buffer) {
                     console.log('音频加载成功');
                     bgMusic.setBuffer(buffer);
@@ -506,7 +506,7 @@
         function loadCatImage() {
             const textureLoader = new THREE.TextureLoader();
             textureLoader.load(
-                'cat.png',
+                './cat.png',
                 function(texture) {
                     const material = new THREE.SpriteMaterial({ 
                         map: texture,
